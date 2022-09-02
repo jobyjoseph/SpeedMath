@@ -1,0 +1,72 @@
+.container {
+  max-width: 360px;
+  padding: 30px;
+  padding-top: 5px;
+  border-radius: 5px;
+  margin: auto;
+  @media (min-width: 468px) {
+    border: 1px solid #ccc;
+    margin-top: 30px;
+  }
+
+  .question {
+    display: flex;
+    font-size: 108px;
+    font-weight: bold;
+    color: #333;
+
+    .numberContainer {
+      flex: 1 1 auto;
+      text-align: right;
+      font-size: 108px;
+    }
+
+    .operator {
+      flex: 0 0 70px;
+      align-self: flex-end;
+    }
+  }
+  .answerContainer {
+    border-top: 6px solid #333;
+    padding-right: 70px;
+    text-align: right;
+    font-size: 108px;
+    font-weight: bold;
+    height: 125px;
+
+    &.default {
+    }
+
+    &.wrong {
+      color: #b71c1c;
+    }
+
+    &.right {
+      color: #1b5e20;
+    }
+  }
+
+  .keypad {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+
+    @media (min-width: 468px) {
+      position: static;
+    }
+
+    & > div {
+      flex: 1 1 31%;
+      background: #eee;
+      text-align: center;
+      line-height: 60px;
+      margin: 1%;
+      font-size: 36px;
+      cursor: pointer;
+    }
+  }
+}
