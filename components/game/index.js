@@ -1,22 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import * as styles from "./game.module.scss";
 
-import * as styles from "../styles/play.module.scss";
-
-const generateNumber = (max, min = 0) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-export default function Play() {
+export default function Game({
+  expectedAnswer,
+  number1,
+  number2,
+  loadQuestion,
+  operator,
+}) {
   const [answer, setAnswer] = useState("");
-  const [number1, setNumber1] = useState("");
-  const [number2, setNumber2] = useState("");
   const [answerState, setAnswerState] = useState("default");
   const [questionStatus, setQuestionStatus] = useState("inprogress");
-
-  useEffect(() => {
-    setNumber1(generateNumber(20, 10));
-    setNumber2(generateNumber(0, 9));
-  }, []);
 
   const handleKeyPress = (key) => {
     if (key === "delete" && questionStatus === "inprogress") {
@@ -26,7 +20,7 @@ export default function Play() {
     }
 
     if (key === "submit" && questionStatus === "inprogress") {
-      if (number1 + number2 == answer) {
+      if (expectedAnswer == answer) {
         setAnswerState("right");
         setQuestionStatus("done");
       } else {
@@ -34,11 +28,10 @@ export default function Play() {
       }
       return;
     } else if (key === "submit" && questionStatus === "done") {
-      setNumber1(generateNumber(20, 10));
-      setNumber2(generateNumber(0, 9));
       setAnswer("");
       setAnswerState("default");
       setQuestionStatus("inprogress");
+      loadQuestion();
       return;
     }
 
@@ -54,7 +47,7 @@ export default function Play() {
           <div className={styles.firstNumber}>{number1}</div>
           <div className={styles.secondNumber}>{number2}</div>
         </div>
-        <div className={styles.operator}>+</div>
+        <div className={styles.operator}>{operator}</div>
       </div>
       <div className={`${styles.answerContainer} ${styles[answerState]}`}>
         {answer}

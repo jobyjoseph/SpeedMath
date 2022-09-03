@@ -6,19 +6,28 @@
   margin: auto;
   @media (min-width: 468px) {
     border: 1px solid #ccc;
-    margin-top: 30px;
   }
 
   .question {
     display: flex;
-    font-size: 108px;
     font-weight: bold;
     color: #333;
+    font-size: 96px;
+    line-height: 98px;
+    @media (min-width: 468px) {
+      font-size: 108px;
+      line-height: 110px;
+    }
 
     .numberContainer {
       flex: 1 1 auto;
       text-align: right;
-      font-size: 108px;
+      font-size: 96px;
+      line-height: 98px;
+      @media (min-width: 468px) {
+        font-size: 108px;
+        line-height: 110px;
+      }
     }
 
     .operator {
@@ -31,8 +40,9 @@
     padding-right: 70px;
     text-align: right;
     font-size: 108px;
+    line-height: 110px;
     font-weight: bold;
-    height: 125px;
+    height: 110px;
 
     &.default {
     }

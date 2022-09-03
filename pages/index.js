@@ -1,9 +1,23 @@
 import Link from "next/link";
+import * as styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
-    <div>
-      <Link href="/ssr">SSR</Link>
+    <div className={styles.container}>
+      <ul className={styles.pagelinks}>
+        <li>
+          <Link href="/adding-by-1">
+            <span className={`${styles.link} ${styles.add}`}>Adding By 1</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/subtracting-by-1">
+            <span className={`${styles.link} ${styles.subtract}`}>
+              Subtracting By 1
+            </span>
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 }

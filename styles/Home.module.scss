@@ -1,0 +1,42 @@
+.container {
+  padding: 0 1rem;
+  @media (min-width: 468px) {
+    padding: 0 2rem;
+  }
+}
+
+.pagelinks {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+
+  li {
+    margin-bottom: 10px;
+    line-height: 52px;
+  }
+
+  .link {
+    padding: 10px 30px;
+    background: #eee;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &.add {
+      background: #c8e6c9;
+    }
+
+    &.subtract {
+      background: #ffe0b2;
+    }
+
+    &.multiply {
+      background: #bbdefb;
+    }
+
+    &.division {
+      background: #e1bee7;
+    }
+  }
+}
