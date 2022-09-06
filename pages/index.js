@@ -11,6 +11,13 @@ export default function Home() {
           </Link>
         </li>
         <li>
+          <Link href="/adding-two-digits">
+            <span className={`${styles.link} ${styles.add}`}>
+              Adding 2 Digit Numbers
+            </span>
+          </Link>
+        </li>
+        <li>
           <Link href="/subtracting-by-1">
             <span className={`${styles.link} ${styles.subtract}`}>
               Subtracting By 1
