@@ -8,13 +8,17 @@ export default function AddingBy1() {
   const [expectedAnswer, setExpectedAnswer] = useState();
 
   const loadQuestion = () => {
-    setNumber1(generateNumber(10, 99));
-    setNumber2(generateNumber(10, number1));
+    setNumber1(generateNumber(99, 10));
+    setNumber2(generateNumber(number1, 10));
   };
 
   useEffect(() => {
     loadQuestion();
   }, []);
+
+  useEffect(() => {
+    setNumber2(generateNumber(number1, 10));
+  }, [number1]);
 
   useEffect(() => {
     setExpectedAnswer(number1 + number2);
